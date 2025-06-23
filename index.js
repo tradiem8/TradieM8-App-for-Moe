@@ -9,8 +9,9 @@ async function downloadProjectFiles() {
     console.log('📦 Downloading project files from Object Storage...');
 
     // List all objects with the tradiem8/ prefix
-    const objects = await client.list();
-    const tradiem8Objects = objects.filter(obj => obj.key.startsWith('tradiem8/'));
+    const result = await client.list();
+    const objects = result.data || result || [];
+    const tradiem8Objects = objects.filter(obj => obj.key && obj.key.startsWith('tradiem8/'));
     console.log(`Found ${tradiem8Objects.length} files to download`);
 
     for (const obj of tradiem8Objects) {
