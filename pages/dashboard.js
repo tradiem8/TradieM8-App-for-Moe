@@ -27,7 +27,10 @@ export default function Dashboard() {
             fontSize: '48px', 
             margin: '20px 0',
             color: '#FFD700',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+            fontFamily: 'Anton, sans-serif',
+            fontWeight: '400',
+            letterSpacing: '1px'
           }}>
             Welcome to Your Dashboard
           </h1>

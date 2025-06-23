@@ -14,7 +14,10 @@ export default function Home() {
           <h1 style={{ 
             fontSize: '64px', 
             margin: '20px 0',
-            lineHeight: '1.2'
+            lineHeight: '1.2',
+            fontFamily: 'Anton, sans-serif',
+            fontWeight: '400',
+            letterSpacing: '2px'
           }}>
             Welcome to <span style={{ color: '#FFD700' }}>TRADIE</span><span style={{ color: '#00FF00' }}>M8</span>
           </h1>

@@ -2,6 +2,9 @@
 export default function Layout({ children }) {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#1a1a1a', color: '#ffffff' }}>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
+      `}</style>
       <nav style={{ 
         padding: '1rem 2rem', 
         backgroundColor: '#000000',
@@ -9,12 +12,14 @@ export default function Layout({ children }) {
         marginBottom: '0'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <img src="/logo.png" alt="Tradiem8" style={{ height: '40px', width: 'auto' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <img src="/logo-rect.png" alt="Tradiem8" style={{ height: '50px', width: 'auto' }} />
             <h2 style={{ 
               margin: 0, 
-              fontSize: '24px',
-              fontWeight: 'bold'
+              fontSize: '28px',
+              fontFamily: 'Anton, sans-serif',
+              fontWeight: '400',
+              letterSpacing: '1px'
             }}>
               <span style={{ color: '#FFD700' }}>TRADIE</span>
               <span style={{ color: '#00FF00' }}>M8</span>
