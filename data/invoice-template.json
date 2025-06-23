@@ -1,0 +1,25 @@
+{
+  "business": {
+    "name": "Gutter Knight GC ",
+    "abn": "79 618 935 792",
+    "phone": "0434766121",
+    "email": "danielle.pardoe@gmail.com",
+    "website": "https://gutterknight.com.au/",
+    "logoPath": "/logo-1750699927545.png"
+  },
+  "settings": {
+    "paymentTerms": 30,
+    "currency": "AUD",
+    "taxRate": 0.1
+  },
+  "template": {
+    "header": {
+      "title": "INVOICE",
+      "color": "#FFD700"
+    },
+    "footer": {
+      "message": "Thank you for your business!",
+      "paymentInstructions": "Payment due within 30 days"
+    }
+  }
+}

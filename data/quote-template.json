@@ -1,0 +1,25 @@
+{
+  "business": {
+    "name": "Gutter Knight GC ",
+    "abn": "79 618 935 792",
+    "phone": "0434766121",
+    "email": "danielle.pardoe@gmail.com",
+    "website": "https://gutterknight.com.au/",
+    "logoPath": "/logo-1750699927545.png"
+  },
+  "settings": {
+    "validityPeriod": 30,
+    "currency": "AUD",
+    "taxRate": 0.1
+  },
+  "template": {
+    "header": {
+      "title": "QUOTE",
+      "color": "#00FF00"
+    },
+    "footer": {
+      "message": "We appreciate the opportunity to quote for your project!",
+      "validityMessage": "This quote is valid for 30 days from the date of issue"
+    }
+  }
+}
