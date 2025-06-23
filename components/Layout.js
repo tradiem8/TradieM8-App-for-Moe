@@ -1,4 +1,3 @@
-
 export default function Layout({ children }) {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#1a1a1a', color: '#ffffff' }}>
@@ -41,10 +40,18 @@ export default function Layout({ children }) {
               fontWeight: '500',
               padding: '8px 16px',
               borderRadius: '5px',
-              backgroundColor: '#FFD700',
-              color: '#000000',
+              transition: 'all 0.3s ease',
               fontFamily: 'Inter, sans-serif'
             }}>Dashboard</a>
+            <a href="/setup" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px',
+              transition: 'all 0.3s ease',
+              fontFamily: 'Inter, sans-serif'
+            }}>Setup</a>
             <a href="/leads" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',

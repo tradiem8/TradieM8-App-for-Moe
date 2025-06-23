@@ -1,7 +1,54 @@
 
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 
 export default function Dashboard() {
+  const router = useRouter();
+  const [businessData, setBusinessData] = useState(null);
+  const [isSetup, setIsSetup] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    checkSetupStatus();
+  }, []);
+
+  const checkSetupStatus = async () => {
+    try {
+      const response = await fetch('/api/check-setup');
+      const data = await response.json();
+      
+      if (data.isSetup) {
+        setIsSetup(true);
+        setBusinessData(data.business);
+      } else {
+        router.push('/setup');
+      }
+    } catch (error) {
+      console.error('Error checking setup:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <Layout>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          height: '50vh' 
+        }}>
+          <div style={{ color: '#FFD700', fontSize: '18px' }}>Loading...</div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!isSetup) {
+    return null; // Will redirect to setup
+  }
   const cardStyle = {
     padding: '25px',
     backgroundColor: '#2a2a2a',
@@ -32,7 +79,7 @@ export default function Dashboard() {
             fontWeight: '400',
             letterSpacing: '1px'
           }}>
-            Welcome to Your Dashboard
+            Welcome back, {businessData?.businessName}!
           </h1>
           <p style={{ 
             fontSize: '18px', 
@@ -41,8 +88,21 @@ export default function Dashboard() {
             fontFamily: 'Inter, sans-serif',
             fontWeight: '400'
           }}>
-            <span style={{ color: '#FF6600' }}>Digital Assistant</span> for Trade Professionals
+            Your <span style={{ color: '#FF6600' }}>Digital Assistant</span> is ready to help manage your business
           </p>
+          {businessData?.logoPath && (
+            <div style={{ marginBottom: '20px' }}>
+              <img 
+                src={businessData.logoPath} 
+                alt="Business Logo" 
+                style={{ 
+                  maxHeight: '80px', 
+                  borderRadius: '8px',
+                  border: '2px solid #00FF00'
+                }} 
+              />
+            </div>
+          )}
           <div style={{ 
             width: '100px', 
             height: '3px', 
@@ -51,6 +111,51 @@ export default function Dashboard() {
           }}></div>
         </div>
 
+        {/* Setup Status Cards */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gap: '25px', 
+          marginBottom: '40px' 
+        }}>
+          <div style={{
+            ...cardStyle,
+            border: '2px solid #00FF00',
+            backgroundColor: '#1a3a1a'
+          }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>✅ Invoice Template Ready</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+              Your professional invoice template is configured with your business details
+            </p>
+            <div style={{ color: '#00FF00', fontWeight: 'bold' }}>Ready to use</div>
+          </div>
+
+          <div style={{
+            ...cardStyle,
+            border: '2px solid #FFD700',
+            backgroundColor: '#3a3a1a'
+          }}>
+            <h3 style={{ color: '#FFD700', fontSize: '24px', marginBottom: '15px' }}>✅ Quote Template Ready</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+              Professional quote template ready for sending to clients
+            </p>
+            <div style={{ color: '#FFD700', fontWeight: 'bold' }}>Ready to use</div>
+          </div>
+
+          <div style={{
+            ...cardStyle,
+            border: '2px solid #FF6600',
+            backgroundColor: '#3a1a1a'
+          }}>
+            <h3 style={{ color: '#FF6600', fontSize: '24px', marginBottom: '15px' }}>🚀 Let's Start Using TradieM8</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+              Everything is set up! Start managing your leads, jobs, and invoices
+            </p>
+            <div style={{ color: '#FF6600', fontWeight: 'bold' }}>All systems go!</div>
+          </div>
+        </div>
+
+        {/* Main Feature Cards */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
