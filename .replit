@@ -24,3 +24,6 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node index.js"
+
+[objectStorage]
+defaultBucketID = "replit-objstore-233d2c95-5978-4814-be1f-75b77ecc9c77"
