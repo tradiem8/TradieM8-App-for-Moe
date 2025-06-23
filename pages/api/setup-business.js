@@ -39,6 +39,9 @@ export default async function handler(req, res) {
       services: fields.services[0],
       invoiceTerms: parseInt(fields.invoiceTerms[0]),
       logoPath: null,
+      bankAccountName: fields.bankAccountName[0],
+      bankBSB: fields.bankBSB[0],
+      bankAccountNumber: fields.bankAccountNumber[0],
       createdAt: new Date().toISOString()
     };
 
@@ -79,7 +82,12 @@ export default async function handler(req, res) {
         },
         footer: {
           message: 'Thank you for your business!',
-          paymentInstructions: `Payment due within ${businessData.invoiceTerms} days`
+          paymentInstructions: `Payment due within ${businessData.invoiceTerms} days`,
+          bankDetails: {
+            accountName: businessData.bankAccountName,
+            bsb: businessData.bankBSB,
+            accountNumber: businessData.bankAccountNumber
+          }
         }
       }
     };

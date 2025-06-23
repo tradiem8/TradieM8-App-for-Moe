@@ -13,7 +13,10 @@ export default function Setup() {
     website: '',
     services: '',
     invoiceTerms: '30',
-    logo: null
+    logo: null,
+    bankAccountName: '',
+    bankBSB: '',
+    bankAccountNumber: ''
   });
   const [logoPreview, setLogoPreview] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -272,6 +275,75 @@ export default function Setup() {
                 <option value="14">14 Days</option>
                 <option value="30">30 Days</option>
               </select>
+            </div>
+
+            <div style={{
+              backgroundColor: '#1a1a1a',
+              padding: '25px',
+              borderRadius: '8px',
+              border: '2px solid #FF6600',
+              marginTop: '20px'
+            }}>
+              <h3 style={{
+                color: '#FF6600',
+                fontSize: '20px',
+                marginBottom: '20px',
+                fontFamily: 'Inter, sans-serif',
+                textAlign: 'center'
+              }}>
+                Banking Details
+              </h3>
+              <p style={{
+                color: '#cccccc',
+                fontSize: '14px',
+                marginBottom: '20px',
+                fontFamily: 'Inter, sans-serif',
+                textAlign: 'center'
+              }}>
+                Add your bank account details for invoice payment instructions
+              </p>
+
+              <div>
+                <label style={labelStyle}>Account Name *</label>
+                <input
+                  type="text"
+                  name="bankAccountName"
+                  value={formData.bankAccountName}
+                  onChange={handleInputChange}
+                  style={inputStyle}
+                  placeholder="Business Account Name"
+                  required
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '20px' }}>
+                <div>
+                  <label style={labelStyle}>BSB *</label>
+                  <input
+                    type="text"
+                    name="bankBSB"
+                    value={formData.bankBSB}
+                    onChange={handleInputChange}
+                    style={inputStyle}
+                    placeholder="123-456"
+                    maxLength="7"
+                    required
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>Account Number *</label>
+                  <input
+                    type="text"
+                    name="bankAccountNumber"
+                    value={formData.bankAccountNumber}
+                    onChange={handleInputChange}
+                    style={inputStyle}
+                    placeholder="12345678"
+                    maxLength="10"
+                    required
+                  />
+                </div>
+              </div>
             </div>
 
             <button

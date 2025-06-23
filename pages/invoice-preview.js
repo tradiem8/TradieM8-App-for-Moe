@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 
@@ -83,7 +82,7 @@ export default function InvoicePreview() {
                 <div style={{ marginBottom: '4px' }}>Oliver Krumins, 167 Brygon Creek Drive, Upper Coomera QLD 4209</div>
               </div>
             </div>
-            
+
             {/* Right side - Logo and Invoice Details */}
             <div style={{ textAlign: 'right', minWidth: '300px' }}>
               {/* Logo or Placeholder */}
@@ -113,7 +112,7 @@ export default function InvoicePreview() {
                   </div>
                 )}
               </div>
-              
+
               {/* Invoice Details */}
               <div style={{ fontSize: '14px', lineHeight: '1.6', color: '#333' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
@@ -133,7 +132,7 @@ export default function InvoicePreview() {
                   <span>{businessData.abn}</span>
                 </div>
               </div>
-              
+
               {/* Bill To Section */}
               <div style={{ marginTop: '20px', textAlign: 'right' }}>
                 <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '8px' }}>BIB QLD PTY LTD</div>
@@ -236,6 +235,35 @@ export default function InvoicePreview() {
           {/* Reference */}
           <div style={{ fontSize: '14px', fontFamily: 'Inter, sans-serif', color: '#666' }}>
             Reference Invoice Number and Name
+          </div>
+        
+
+          {/* Bank Details */}
+          {invoiceTemplate.template.footer.bankDetails && (
+            <div style={{ 
+              marginTop: '30px', 
+              backgroundColor: '#f8f8f8', 
+              padding: '20px', 
+              borderRadius: '8px',
+              border: '1px solid #ddd'
+            }}>
+              <h4 style={{ color: '#333', fontSize: '16px', marginBottom: '10px', fontWeight: 'bold' }}>
+                Payment Details
+              </h4>
+              <div style={{ fontSize: '14px', color: '#333', lineHeight: '1.6' }}>
+                <div><strong>Account Name:</strong> {invoiceTemplate.template.footer.bankDetails.accountName}</div>
+                <div><strong>BSB:</strong> {invoiceTemplate.template.footer.bankDetails.bsb}</div>
+                <div><strong>Account Number:</strong> {invoiceTemplate.template.footer.bankDetails.accountNumber}</div>
+              </div>
+            </div>
+          )}
+
+          {/* Footer */}
+          <div style={{ marginTop: '40px', borderTop: '2px solid #333', paddingTop: '20px' }}>
+            <div style={{ textAlign: 'center', color: '#666', fontSize: '14px' }}>
+              <p>{invoiceTemplate.template.footer.message}</p>
+              <p>{invoiceTemplate.template.footer.paymentInstructions}</p>
+            </div>
           </div>
         </div>
 
