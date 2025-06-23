@@ -32,7 +32,8 @@ export default function Layout({ children }) {
               fontWeight: '500',
               padding: '8px 16px',
               borderRadius: '5px',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              fontFamily: 'Inter, sans-serif'
             }}>Home</a>
             <a href="/dashboard" style={{ 
               color: '#ffffff', 
@@ -41,35 +42,40 @@ export default function Layout({ children }) {
               padding: '8px 16px',
               borderRadius: '5px',
               backgroundColor: '#FFD700',
-              color: '#000000'
+              color: '#000000',
+              fontFamily: 'Inter, sans-serif'
             }}>Dashboard</a>
             <a href="/leads" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
               fontWeight: '500',
               padding: '8px 16px',
-              borderRadius: '5px'
+              borderRadius: '5px',
+              fontFamily: 'Inter, sans-serif'
             }}>Leads</a>
             <a href="/jobs" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
               fontWeight: '500',
               padding: '8px 16px',
-              borderRadius: '5px'
+              borderRadius: '5px',
+              fontFamily: 'Inter, sans-serif'
             }}>Jobs</a>
             <a href="/invoices" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
               fontWeight: '500',
               padding: '8px 16px',
-              borderRadius: '5px'
+              borderRadius: '5px',
+              fontFamily: 'Inter, sans-serif'
             }}>Invoices</a>
             <a href="/bookings" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
               fontWeight: '500',
               padding: '8px 16px',
-              borderRadius: '5px'
+              borderRadius: '5px',
+              fontFamily: 'Inter, sans-serif'
             }}>Bookings</a>
           </div>
         </div>
