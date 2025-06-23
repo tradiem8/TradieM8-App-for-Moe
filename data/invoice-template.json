@@ -1,11 +1,11 @@
 {
   "business": {
-    "name": "Warner Pool and Spa Care",
-    "abn": "12345678",
-    "phone": "0434766121",
-    "email": "warnerpoolandspacare@gmail.com",
-    "website": "https://warnerpoolcare.com/",
-    "logoPath": "/logo-1750702822887.webp"
+    "name": "Gutter Knight GC ",
+    "abn": "79 618 935 792",
+    "phone": "0411201148",
+    "email": "ihirangi.pene@gmail.com",
+    "website": "https://gutterknight.com.au/",
+    "logoPath": "/logo-1750704263349.png"
   },
   "settings": {
     "paymentTerms": 30,
@@ -21,9 +21,9 @@
       "message": "Thank you for your business!",
       "paymentInstructions": "Payment due within 30 days",
       "bankDetails": {
-        "accountName": "warner pool care ",
+        "accountName": "fake taxi",
         "bsb": "123456",
-        "accountNumber": "120303030"
+        "accountNumber": "123456"
       }
     }
   }

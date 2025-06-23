@@ -12,6 +12,19 @@
       "source": "manual",
       "createdAt": "2025-06-23T18:07:10.098Z",
       "updatedAt": "2025-06-23T18:07:10.098Z"
+    },
+    {
+      "id": "cust_1750704322834",
+      "name": "Ihi Pene",
+      "email": "warnerpoolandspacare@gmail.com",
+      "phone": "0411201148",
+      "company": "Warner Pool and Spa Care",
+      "billingAddress": "10 Pipers Point Helensvale",
+      "serviceAddress": "10 Pipers Point Helensvale",
+      "notes": "",
+      "source": "manual",
+      "createdAt": "2025-06-23T18:45:22.834Z",
+      "updatedAt": "2025-06-23T18:45:22.834Z"
     }
   ]
 }

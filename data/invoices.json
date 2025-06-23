@@ -119,6 +119,42 @@
       "status": "draft",
       "createdAt": "2025-06-23T18:21:03.616Z",
       "updatedAt": "2025-06-23T18:21:03.617Z"
+    },
+    {
+      "id": "inv_1750704429224",
+      "customerId": "cust_1750704322834",
+      "customer": {
+        "name": "Ihi Pene",
+        "email": "warnerpoolandspacare@gmail.com",
+        "phone": "0411201148",
+        "address": "",
+        "serviceAddress": "10 Pipers Point Helensvale"
+      },
+      "invoiceNumber": "INV-342950",
+      "invoiceDate": "2025-06-23",
+      "dueDate": "2025-07-23",
+      "reference": "pool servicinh ",
+      "items": [
+        {
+          "description": "clean",
+          "quantity": 1,
+          "unitPrice": 250,
+          "gst": "10%"
+        },
+        {
+          "description": "gurad",
+          "quantity": 1,
+          "unitPrice": 3000,
+          "gst": "10%"
+        }
+      ],
+      "notes": "",
+      "subtotal": 3250,
+      "gst": 325,
+      "total": 3575,
+      "status": "draft",
+      "createdAt": "2025-06-23T18:47:09.224Z",
+      "updatedAt": "2025-06-23T18:47:09.224Z"
     }
   ]
 }
