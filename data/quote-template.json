@@ -1,11 +1,11 @@
 {
   "business": {
-    "name": "Infinity 1",
-    "abn": "79 618 935 792",
+    "name": "Warner Pool and Spa Care",
+    "abn": "12345678",
     "phone": "0434766121",
-    "email": "danielle.pardoe@gmail.com",
-    "website": "https://gutterknight.com.au/",
-    "logoPath": "/logo-1750700664850.png"
+    "email": "warnerpoolandspacare@gmail.com",
+    "website": "https://warnerpoolcare.com/",
+    "logoPath": "/logo-1750702822887.webp"
   },
   "settings": {
     "validityPeriod": 30,

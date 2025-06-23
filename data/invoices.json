@@ -89,6 +89,36 @@
       "status": "draft",
       "createdAt": "2025-06-23T18:14:56.274Z",
       "updatedAt": "2025-06-23T18:14:56.274Z"
+    },
+    {
+      "id": "inv_1750702863616",
+      "customerId": "cust_1750702030098",
+      "customer": {
+        "name": "Danielle Pardoe",
+        "email": "danielle.pardoe@gmail.com",
+        "phone": "0434766121",
+        "address": "",
+        "serviceAddress": "10 Pipers Point"
+      },
+      "invoiceNumber": "INV-839501",
+      "invoiceDate": "2025-06-23",
+      "dueDate": "2025-07-23",
+      "reference": "pool servicinh ",
+      "items": [
+        {
+          "description": "pool test",
+          "quantity": 1,
+          "unitPrice": 500,
+          "gst": "10%"
+        }
+      ],
+      "notes": "",
+      "subtotal": 500,
+      "gst": 50,
+      "total": 550,
+      "status": "draft",
+      "createdAt": "2025-06-23T18:21:03.616Z",
+      "updatedAt": "2025-06-23T18:21:03.617Z"
     }
   ]
 }
