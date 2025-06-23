@@ -1,26 +1,75 @@
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div style={{ minHeight: '100vh', backgroundColor: '#1a1a1a', color: '#ffffff' }}>
       <nav style={{ 
-        padding: '1rem', 
-        backgroundColor: '#0070f3', 
-        color: 'white',
-        marginBottom: '20px'
+        padding: '1rem 2rem', 
+        backgroundColor: '#000000',
+        borderBottom: '3px solid #00FF00',
+        marginBottom: '0'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ margin: 0 }}>Tradiem8</h2>
-          <div style={{ display: 'flex', gap: '20px' }}>
-            <a href="/" style={{ color: 'white', textDecoration: 'none' }}>Home</a>
-            <a href="/dashboard" style={{ color: 'white', textDecoration: 'none' }}>Dashboard</a>
-            <a href="/leads" style={{ color: 'white', textDecoration: 'none' }}>Leads</a>
-            <a href="/jobs" style={{ color: 'white', textDecoration: 'none' }}>Jobs</a>
-            <a href="/invoices" style={{ color: 'white', textDecoration: 'none' }}>Invoices</a>
-            <a href="/bookings" style={{ color: 'white', textDecoration: 'none' }}>Bookings</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <img src="/logo.png" alt="Tradiem8" style={{ height: '40px', width: 'auto' }} />
+            <h2 style={{ 
+              margin: 0, 
+              fontSize: '24px',
+              fontWeight: 'bold'
+            }}>
+              <span style={{ color: '#FFD700' }}>TRADIE</span>
+              <span style={{ color: '#00FF00' }}>M8</span>
+            </h2>
+          </div>
+          <div style={{ display: 'flex', gap: '30px' }}>
+            <a href="/" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px',
+              transition: 'all 0.3s ease'
+            }}>Home</a>
+            <a href="/dashboard" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px',
+              backgroundColor: '#FFD700',
+              color: '#000000'
+            }}>Dashboard</a>
+            <a href="/leads" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px'
+            }}>Leads</a>
+            <a href="/jobs" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px'
+            }}>Jobs</a>
+            <a href="/invoices" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px'
+            }}>Invoices</a>
+            <a href="/bookings" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px'
+            }}>Bookings</a>
           </div>
         </div>
       </nav>
-      <main>{children}</main>
+      <main style={{ padding: '20px' }}>{children}</main>
     </div>
   );
 }
