@@ -127,7 +127,19 @@ export default function Dashboard() {
             <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Your professional invoice template is configured with your business details
             </p>
-            <div style={{ color: '#00FF00', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>Ready to use</div>
+            <a href="/invoice-preview" style={{
+              color: '#00FF00',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontFamily: 'Inter, sans-serif',
+              display: 'inline-block',
+              padding: '8px 16px',
+              border: '1px solid #00FF00',
+              borderRadius: '5px',
+              transition: 'all 0.3s ease'
+            }}>
+              Preview Template →
+            </a>
           </div>
 
           <div style={{
