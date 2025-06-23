@@ -123,11 +123,11 @@ export default function Dashboard() {
             border: '2px solid #00FF00',
             backgroundColor: '#1a3a1a'
           }}>
-            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>✅ Invoice Template Ready</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>✅ Invoice Template Ready</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Your professional invoice template is configured with your business details
             </p>
-            <div style={{ color: '#00FF00', fontWeight: 'bold' }}>Ready to use</div>
+            <div style={{ color: '#00FF00', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>Ready to use</div>
           </div>
 
           <div style={{
@@ -135,11 +135,11 @@ export default function Dashboard() {
             border: '2px solid #FFD700',
             backgroundColor: '#3a3a1a'
           }}>
-            <h3 style={{ color: '#FFD700', fontSize: '24px', marginBottom: '15px' }}>✅ Quote Template Ready</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#FFD700', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>✅ Quote Template Ready</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Professional quote template ready for sending to clients
             </p>
-            <div style={{ color: '#FFD700', fontWeight: 'bold' }}>Ready to use</div>
+            <div style={{ color: '#FFD700', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>Ready to use</div>
           </div>
 
           <div style={{
@@ -147,11 +147,11 @@ export default function Dashboard() {
             border: '2px solid #FF6600',
             backgroundColor: '#3a1a1a'
           }}>
-            <h3 style={{ color: '#FF6600', fontSize: '24px', marginBottom: '15px' }}>🚀 Let's Start Using TradieM8</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#FF6600', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>🚀 Let's Start Using TradieM8</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Everything is set up! Start managing your leads, jobs, and invoices
             </p>
-            <div style={{ color: '#FF6600', fontWeight: 'bold' }}>All systems go!</div>
+            <div style={{ color: '#FF6600', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>All systems go!</div>
           </div>
         </div>
 
@@ -163,35 +163,35 @@ export default function Dashboard() {
           marginTop: '40px' 
         }}>
           <div style={cardStyle}>
-            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>📋 Leads</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>📋 Leads</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Manage your sales leads and track potential customers
             </p>
-            <a href="/leads" style={linkStyle}>View Leads →</a>
+            <a href="/leads" style={{...linkStyle, fontFamily: 'Inter, sans-serif'}}>View Leads →</a>
           </div>
 
           <div style={cardStyle}>
-            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>🔧 Jobs</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>🔧 Jobs</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Track your active projects and job progress
             </p>
-            <a href="/jobs" style={linkStyle}>View Jobs →</a>
+            <a href="/jobs" style={{...linkStyle, fontFamily: 'Inter, sans-serif'}}>View Jobs →</a>
           </div>
 
           <div style={cardStyle}>
-            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>💰 Invoices</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>💰 Invoices</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Manage billing and payment tracking
             </p>
-            <a href="/invoices" style={linkStyle}>View Invoices →</a>
+            <a href="/invoices" style={{...linkStyle, fontFamily: 'Inter, sans-serif'}}>View Invoices →</a>
           </div>
 
           <div style={cardStyle}>
-            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>📅 Bookings</h3>
-            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5' }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>📅 Bookings</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               Schedule appointments and manage calendar
             </p>
-            <a href="/bookings" style={linkStyle}>View Bookings →</a>
+            <a href="/bookings" style={{...linkStyle, fontFamily: 'Inter, sans-serif'}}>View Bookings →</a>
           </div>
         </div>
 
@@ -203,19 +203,19 @@ export default function Dashboard() {
           border: '2px solid #FF6600',
           textAlign: 'center'
         }}>
-          <h2 style={{ color: '#FF6600', marginBottom: '15px' }}>Quick Stats</h2>
+          <h2 style={{ color: '#FF6600', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>Quick Stats</h2>
           <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '20px' }}>
             <div>
-              <div style={{ fontSize: '32px', color: '#FFD700', fontWeight: 'bold' }}>0</div>
-              <div style={{ color: '#cccccc' }}>Active Leads</div>
+              <div style={{ fontSize: '32px', color: '#FFD700', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>0</div>
+              <div style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>Active Leads</div>
             </div>
             <div>
-              <div style={{ fontSize: '32px', color: '#00FF00', fontWeight: 'bold' }}>0</div>
-              <div style={{ color: '#cccccc' }}>Ongoing Jobs</div>
+              <div style={{ fontSize: '32px', color: '#00FF00', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>0</div>
+              <div style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>Ongoing Jobs</div>
             </div>
             <div>
-              <div style={{ fontSize: '32px', color: '#FF6600', fontWeight: 'bold' }}>$0</div>
-              <div style={{ color: '#cccccc' }}>Monthly Revenue</div>
+              <div style={{ fontSize: '32px', color: '#FF6600', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>$0</div>
+              <div style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>Monthly Revenue</div>
             </div>
           </div>
         </div>
