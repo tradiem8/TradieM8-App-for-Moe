@@ -14,10 +14,19 @@ deploymentTarget = "autoscale"
 ignorePorts = false
 
 [workflows]
-runButton = "Extract ZIP Files"
+runButton = "Download Project Files"
 
 [[workflows.workflow]]
 name = "Extract ZIP Files"
+author = 42860887
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js"
+
+[[workflows.workflow]]
+name = "Download Project Files"
 author = 42860887
 mode = "sequential"
 
