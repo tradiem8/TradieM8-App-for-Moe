@@ -14,7 +14,7 @@ deploymentTarget = "autoscale"
 ignorePorts = false
 
 [workflows]
-runButton = "Download Project Files"
+runButton = "Start Dev Server"
 
 [[workflows.workflow]]
 name = "Extract ZIP Files"
@@ -33,6 +33,15 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node index.js"
+
+[[workflows.workflow]]
+name = "Start Dev Server"
+author = 42860887
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
 
 [objectStorage]
 defaultBucketID = "replit-objstore-233d2c95-5978-4814-be1f-75b77ecc9c77"
