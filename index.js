@@ -37,7 +37,8 @@ async function downloadProjectFiles() {
       }
 
       // Download file
-      const buffer = await client.downloadAsBytes(obj.name);
+      const result = await client.downloadAsBytes(obj.name);
+      const buffer = result.data || result.value || result;
       fs.writeFileSync(filePath, buffer);
 
       console.log(`✓ Downloaded: ${fileName}`);
