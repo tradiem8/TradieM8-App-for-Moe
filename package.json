@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^22.13.11"
+    "@replit/object-storage": "^1.0.0",
+    "@types/node": "^22.13.11",
+    "yauzl": "^3.2.0"
   }
 }
