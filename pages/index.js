@@ -27,7 +27,9 @@ export default function Home() {
             marginBottom: '30px',
             maxWidth: '600px',
             margin: '0 auto 30px auto',
-            lineHeight: '1.5'
+            lineHeight: '1.5',
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: '400'
           }}>
             Your all-in-one <span style={{ color: '#FF6600' }}>Digital Assistant</span> for managing trades business operations
           </p>

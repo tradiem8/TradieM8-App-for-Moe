@@ -37,7 +37,9 @@ export default function Dashboard() {
           <p style={{ 
             fontSize: '18px', 
             color: '#cccccc',
-            marginBottom: '20px'
+            marginBottom: '20px',
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: '400'
           }}>
             <span style={{ color: '#FF6600' }}>Digital Assistant</span> for Trade Professionals
           </p>

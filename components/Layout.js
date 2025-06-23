@@ -3,7 +3,7 @@ export default function Layout({ children }) {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#1a1a1a', color: '#ffffff' }}>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Inter:wght@300;400;500;600;700&display=swap');
       `}</style>
       <nav style={{ 
         padding: '1rem 2rem', 
