@@ -23,11 +23,11 @@ async function downloadProjectFiles() {
     }
     
     console.log('Objects found:', objects.length);
-    const tradiem8Objects = objects.filter(obj => obj && obj.key && obj.key.startsWith('tradiem8/'));
+    const tradiem8Objects = objects.filter(obj => obj && obj.name && obj.name.startsWith('tradiem8/'));
     console.log(`Found ${tradiem8Objects.length} tradiem8 files to download`);
 
     for (const obj of tradiem8Objects) {
-      const fileName = obj.key.replace('tradiem8/', '');
+      const fileName = obj.name.replace('tradiem8/', '');
       const filePath = path.join('.', fileName);
 
       // Create directory if it doesn't exist
@@ -37,7 +37,7 @@ async function downloadProjectFiles() {
       }
 
       // Download file
-      const buffer = await client.downloadAsBytes(obj.key);
+      const buffer = await client.downloadAsBytes(obj.name);
       fs.writeFileSync(filePath, buffer);
 
       console.log(`✓ Downloaded: ${fileName}`);
