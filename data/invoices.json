@@ -29,6 +29,36 @@
       "status": "draft",
       "createdAt": "2025-06-23T18:07:52.402Z",
       "updatedAt": "2025-06-23T18:07:52.402Z"
+    },
+    {
+      "id": "inv_1750702275224",
+      "customerId": "cust_1750702030098",
+      "customer": {
+        "name": "Danielle Pardoe",
+        "email": "danielle.pardoe@gmail.com",
+        "phone": "0434766121",
+        "address": "",
+        "serviceAddress": "10 Pipers Point"
+      },
+      "invoiceNumber": "INV-252711",
+      "invoiceDate": "2025-06-23",
+      "dueDate": "2025-06-30",
+      "reference": "test",
+      "items": [
+        {
+          "description": "test",
+          "quantity": 1,
+          "unitPrice": 550,
+          "gst": "10%"
+        }
+      ],
+      "notes": "",
+      "subtotal": 550,
+      "gst": 55,
+      "total": 605,
+      "status": "draft",
+      "createdAt": "2025-06-23T18:11:15.224Z",
+      "updatedAt": "2025-06-23T18:11:15.224Z"
     }
   ]
 }
