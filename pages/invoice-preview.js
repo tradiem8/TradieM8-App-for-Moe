@@ -248,23 +248,7 @@ export default function InvoicePreview() {
             </div>
           </div>
 
-          {/* Payment Details */}
-          <div style={{ marginBottom: '20px' }}>
-            <div style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px', fontFamily: 'Inter, sans-serif' }}>
-              Due Date: {new Date(invoice.dueDate).toLocaleDateString('en-GB')}
-            </div>
-            <div style={{ fontSize: '14px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
-              <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>Please Make Payment into:</div>
-              <div>Account Name: I.T. Pene</div>
-              <div>BSB: 923100</div>
-              <div>Account Number: 302324547</div>
-            </div>
-          </div>
-
-          {/* Reference */}
-          <div style={{ fontSize: '14px', fontFamily: 'Inter, sans-serif', color: '#666' }}>
-            Reference Invoice Number and Name
-          </div>
+          
         
 
           {/* Bank Details */}
