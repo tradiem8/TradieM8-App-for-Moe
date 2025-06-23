@@ -267,7 +267,23 @@ export default function InvoicePreview() {
           </div>
         
 
-          
+          {/* Bank Details */}
+          <div style={{ 
+            marginTop: '30px', 
+            backgroundColor: '#f8f8f8', 
+            padding: '20px', 
+            borderRadius: '8px',
+            border: '1px solid #ddd'
+          }}>
+            <h4 style={{ color: '#333', fontSize: '16px', marginBottom: '10px', fontWeight: 'bold' }}>
+              Payment Details
+            </h4>
+            <div style={{ fontSize: '14px', color: '#333', lineHeight: '1.6' }}>
+              <div><strong>Account Name:</strong> {businessData.bankAccountName}</div>
+              <div><strong>BSB:</strong> {businessData.bankBSB}</div>
+              <div><strong>Account Number:</strong> {businessData.bankAccountNumber}</div>
+            </div>
+          </div>
 
           {/* Footer */}
           <div style={{ marginTop: '40px', borderTop: '2px solid #333', paddingTop: '20px' }}>
