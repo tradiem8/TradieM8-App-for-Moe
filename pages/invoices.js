@@ -20,13 +20,15 @@ export default function Invoices() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '30px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
           <div style={{
             backgroundColor: '#2a2a2a',
             padding: '30px',
             borderRadius: '12px',
             border: '2px solid #00FF00',
-            textAlign: 'center'
+            textAlign: 'center',
+            maxWidth: '400px',
+            width: '100%'
           }}>
             <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>
               Create New Invoice
@@ -46,34 +48,6 @@ export default function Invoices() {
               transition: 'all 0.3s ease'
             }}>
               + Create Invoice
-            </a>
-          </div>
-
-          <div style={{
-            backgroundColor: '#2a2a2a',
-            padding: '30px',
-            borderRadius: '12px',
-            border: '2px solid #FFD700',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ color: '#FFD700', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>
-              Preview Template
-            </h3>
-            <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif', marginBottom: '20px' }}>
-              View your invoice template design
-            </p>
-            <a href="/invoice-preview" style={{
-              color: '#FFD700',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              fontFamily: 'Inter, sans-serif',
-              display: 'inline-block',
-              padding: '12px 24px',
-              border: '2px solid #FFD700',
-              borderRadius: '5px',
-              transition: 'all 0.3s ease'
-            }}>
-              Preview Template →
             </a>
           </div>
         </div>

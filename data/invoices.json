@@ -1,0 +1,34 @@
+{
+  "invoices": [
+    {
+      "id": "inv_1750702072402",
+      "customerId": "cust_1750702030098",
+      "customer": {
+        "name": "Danielle Pardoe",
+        "email": "danielle.pardoe@gmail.com",
+        "phone": "0434766121",
+        "address": "",
+        "serviceAddress": "10 Pipers Point"
+      },
+      "invoiceNumber": "INV-048888",
+      "invoiceDate": "2025-06-23",
+      "dueDate": "2025-06-30",
+      "reference": "test",
+      "items": [
+        {
+          "description": "test",
+          "quantity": 1,
+          "unitPrice": 500,
+          "gst": "10%"
+        }
+      ],
+      "notes": "",
+      "subtotal": 500,
+      "gst": 50,
+      "total": 550,
+      "status": "draft",
+      "createdAt": "2025-06-23T18:07:52.402Z",
+      "updatedAt": "2025-06-23T18:07:52.402Z"
+    }
+  ]
+}
