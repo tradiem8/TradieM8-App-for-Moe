@@ -6,7 +6,20 @@ const path = require('path');
 
 async function extractAndUploadZip() {
   try {
+    // Initialize the client (it will use the default bucket from .replit config)
     const client = new Client();
+    
+    // Check if Object Storage is properly configured
+    try {
+      await client.list();
+    } catch (configError) {
+      console.error('❌ Object Storage not configured. Please:');
+      console.error('1. Go to Tools > Object Storage in your Repl');
+      console.error('2. Create a bucket');
+      console.error('3. Run this script again');
+      return;
+    }
+    
     const zipPath = './attached_assets/tradiem8-replit-ready_1750696825096.zip';
     
     console.log('Starting ZIP extraction and upload to Object Storage...');
