@@ -24,7 +24,13 @@ export default function handler(req, res) {
       // Create customer object
       const customer = {
         id: `cust_${Date.now()}`,
-        ...customerData,
+        name: customerData.name,
+        email: customerData.email,
+        phone: customerData.phone,
+        company: customerData.company || '',
+        billingAddress: customerData.billingAddress || '',
+        serviceAddress: customerData.serviceAddress || customerData.billingAddress || '',
+        notes: customerData.notes || '',
         source: customerData.source || 'manual',
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
