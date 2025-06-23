@@ -119,29 +119,36 @@ export default function CreateInvoice() {
 
     setIsSubmitting(true);
     try {
+      const invoicePayload = {
+        customerId: selectedCustomer,
+        ...invoiceData,
+        subtotal: calculateSubtotal(),
+        gst: calculateGST(),
+        total: calculateTotal()
+      };
+
+      console.log('Submitting invoice:', invoicePayload);
+
       const response = await fetch('/api/create-invoice', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          customerId: selectedCustomer,
-          ...invoiceData,
-          subtotal: calculateSubtotal(),
-          gst: calculateGST(),
-          total: calculateTotal()
-        })
+        body: JSON.stringify(invoicePayload)
       });
 
+      const result = await response.json();
+      console.log('API Response:', result);
+
       if (response.ok) {
-        const result = await response.json();
+        alert('Invoice created successfully!');
         router.push(`/invoice-preview?id=${result.invoiceId}`);
       } else {
-        throw new Error('Failed to create invoice');
+        throw new Error(result.message || 'Failed to create invoice');
       }
     } catch (error) {
       console.error('Error creating invoice:', error);
-      alert('Error creating invoice. Please try again.');
+      alert(`Error creating invoice: ${error.message}`);
     } finally {
       setIsSubmitting(false);
     }

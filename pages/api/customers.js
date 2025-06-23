@@ -1,9 +1,15 @@
-
 import fs from 'fs';
 import path from 'path';
 
 export default function handler(req, res) {
-  const customersPath = path.join(process.cwd(), 'data', 'customers.json');
+  const dataDir = path.join(process.cwd(), 'data');
+
+  // Ensure data directory exists
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
+  const customersPath = path.join(dataDir, 'customers.json');
 
   if (req.method === 'GET') {
     try {
@@ -11,7 +17,10 @@ export default function handler(req, res) {
         const data = JSON.parse(fs.readFileSync(customersPath, 'utf8'));
         res.status(200).json(data);
       } else {
-        res.status(200).json({ customers: [] });
+        // Create empty customers file if it doesn't exist
+        const emptyData = { customers: [] };
+        fs.writeFileSync(customersPath, JSON.stringify(emptyData, null, 2));
+        res.status(200).json(emptyData);
       }
     } catch (error) {
       console.error('Error reading customers:', error);
@@ -20,7 +29,7 @@ export default function handler(req, res) {
   } else if (req.method === 'POST') {
     try {
       const customerData = req.body;
-      
+
       // Create customer object
       const customer = {
         id: `cust_${Date.now()}`,

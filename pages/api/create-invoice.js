@@ -10,11 +10,18 @@ export default function handler(req, res) {
   try {
     const { customerId, ...invoiceData } = req.body;
 
+    // Ensure data directory exists
+    const dataDir = path.join(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+
     // Load customer data
-    const customersPath = path.join(process.cwd(), 'data', 'customers.json');
+    const customersPath = path.join(dataDir, 'customers.json');
     let customers = [];
     if (fs.existsSync(customersPath)) {
-      customers = JSON.parse(fs.readFileSync(customersPath, 'utf8')).customers || [];
+      const customersData = JSON.parse(fs.readFileSync(customersPath, 'utf8'));
+      customers = customersData.customers || [];
     }
 
     const customer = customers.find(c => c.id === customerId);
@@ -40,7 +47,7 @@ export default function handler(req, res) {
     };
 
     // Save to invoices database
-    const invoicesPath = path.join(process.cwd(), 'data', 'invoices.json');
+    const invoicesPath = path.join(dataDir, 'invoices.json');
     let invoicesData = { invoices: [] };
     
     if (fs.existsSync(invoicesPath)) {
@@ -49,12 +56,6 @@ export default function handler(req, res) {
 
     invoicesData.invoices = invoicesData.invoices || [];
     invoicesData.invoices.push(invoice);
-
-    // Ensure data directory exists
-    const dataDir = path.join(process.cwd(), 'data');
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
-    }
 
     fs.writeFileSync(invoicesPath, JSON.stringify(invoicesData, null, 2));
 
