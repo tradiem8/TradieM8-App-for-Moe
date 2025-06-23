@@ -273,7 +273,7 @@ export default function InvoicePreview() {
           <div style={{ marginTop: '40px', borderTop: '2px solid #333', paddingTop: '20px' }}>
             <div style={{ textAlign: 'center', color: '#666', fontSize: '14px' }}>
               <p>Thank you for your business!</p>
-              <p>Payment due within payment terms</p>
+              <p>Payment due within {businessData.invoiceTerms} days</p>
             </div>
           </div>
         </div>
