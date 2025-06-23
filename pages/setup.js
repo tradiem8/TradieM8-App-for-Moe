@@ -167,8 +167,8 @@ export default function Setup() {
                   padding: '8px'
                 }}
               />
-              {logoPreview && (
-                <div style={{ marginTop: '10px', textAlign: 'center' }}>
+              <div style={{ marginTop: '15px', textAlign: 'center' }}>
+                {logoPreview ? (
                   <img
                     src={logoPreview}
                     alt="Logo Preview"
@@ -179,8 +179,31 @@ export default function Setup() {
                       border: '2px solid #FFD700'
                     }}
                   />
-                </div>
-              )}
+                ) : (
+                  <div style={{
+                    width: '200px',
+                    height: '100px',
+                    border: '2px dashed #666',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#1a1a1a',
+                    margin: '0 auto',
+                    color: '#888',
+                    fontSize: '14px',
+                    fontFamily: 'Inter, sans-serif'
+                  }}>
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: '24px', marginBottom: '5px' }}>📷</div>
+                      <div>Logo Preview</div>
+                      <div style={{ fontSize: '12px', marginTop: '5px' }}>
+                        Upload a logo to see preview
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
