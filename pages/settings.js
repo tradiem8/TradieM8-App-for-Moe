@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 
-export default function Bookings() {
+export default function Settings() {
   return (
     <Layout>
       <div style={{ padding: '20px' }}>
@@ -14,10 +14,10 @@ export default function Bookings() {
             fontFamily: 'Anton, sans-serif',
             marginBottom: '10px'
           }}>
-            Bookings & Jobs
+            Settings
           </h1>
           <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>
-            Schedule and manage your job bookings
+            Configure your application settings
           </p>
         </div>
 
@@ -32,7 +32,7 @@ export default function Bookings() {
             Coming Soon
           </h3>
           <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>
-            Job booking and scheduling functionality will be available soon
+            Settings and configuration options will be available soon
           </p>
         </div>
       </div>
