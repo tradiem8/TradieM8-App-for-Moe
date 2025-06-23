@@ -11,12 +11,13 @@ async function extractAndUploadZip() {
     
     // Check if Object Storage is properly configured
     try {
-      await client.list();
+      const objects = await client.list();
+      console.log(`✅ Object Storage connected. Found ${objects.length} existing objects.`);
     } catch (configError) {
-      console.error('❌ Object Storage not configured. Please:');
-      console.error('1. Go to Tools > Object Storage in your Repl');
-      console.error('2. Create a bucket');
-      console.error('3. Run this script again');
+      console.error('❌ Object Storage error:', configError.message);
+      if (configError.message.includes('bucket name')) {
+        console.error('Please check your .replit file has the correct bucket configuration.');
+      }
       return;
     }
     
