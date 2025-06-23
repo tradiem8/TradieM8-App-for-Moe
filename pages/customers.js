@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 
-export default function Invoices() {
+export default function Customers() {
   return (
     <Layout>
       <div style={{ padding: '20px' }}>
@@ -13,10 +13,10 @@ export default function Invoices() {
             fontFamily: 'Anton, sans-serif',
             marginBottom: '10px'
           }}>
-            Invoice Management
+            Customer Management
           </h1>
           <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>
-            Create, send, and track your invoices
+            Manage your existing customers and their details
           </p>
         </div>
 
@@ -28,24 +28,11 @@ export default function Invoices() {
           textAlign: 'center'
         }}>
           <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>
-            Invoice Template Ready
+            Coming Soon
           </h3>
-          <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif', marginBottom: '20px' }}>
-            Your invoice template is configured and ready to use
+          <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>
+            Customer management functionality will be available soon
           </p>
-          <a href="/invoice-preview" style={{
-            color: '#00FF00',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            fontFamily: 'Inter, sans-serif',
-            display: 'inline-block',
-            padding: '12px 24px',
-            border: '2px solid #00FF00',
-            borderRadius: '5px',
-            transition: 'all 0.3s ease'
-          }}>
-            Preview Invoice Template →
-          </a>
         </div>
       </div>
     </Layout>

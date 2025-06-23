@@ -2,23 +2,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 
-export default function Leads() {
-  const [leads, setLeads] = useState([]);
-
-  useEffect(() => {
-    // Load leads data when component mounts
-    loadLeads();
-  }, []);
-
-  const loadLeads = async () => {
-    try {
-      // Add your leads loading logic here
-      console.log('Loading leads...');
-    } catch (error) {
-      console.error('Error loading leads:', error);
-    }
-  };
-
+export default function Quotes() {
   return (
     <Layout>
       <div style={{ padding: '20px' }}>
@@ -29,10 +13,10 @@ export default function Leads() {
             fontFamily: 'Anton, sans-serif',
             marginBottom: '10px'
           }}>
-            Leads Management
+            Quotes Management
           </h1>
           <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>
-            Manage your potential customers and follow up opportunities
+            Create and manage quotes for your clients
           </p>
         </div>
 
@@ -47,7 +31,7 @@ export default function Leads() {
             Coming Soon
           </h3>
           <p style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>
-            Leads management functionality will be available soon
+            Quote management functionality will be available soon
           </p>
         </div>
       </div>
