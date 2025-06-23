@@ -1,0 +1,17 @@
+{
+  "customers": [
+    {
+      "id": "cust_1750702030098",
+      "name": "Danielle Pardoe",
+      "email": "danielle.pardoe@gmail.com",
+      "phone": "0434766121",
+      "company": "",
+      "billingAddress": "10 Pipers Point",
+      "serviceAddress": "10 Pipers Point",
+      "notes": "",
+      "source": "manual",
+      "createdAt": "2025-06-23T18:07:10.098Z",
+      "updatedAt": "2025-06-23T18:07:10.098Z"
+    }
+  ]
+}
