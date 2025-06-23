@@ -23,10 +23,20 @@ export default function InvoicePreview() {
         setBusinessData(businessResult.business);
       }
 
-      // Load invoice template
-      const invoiceResponse = await fetch('/data/invoice-template.json');
-      const invoiceResult = await invoiceResponse.json();
-      setInvoiceTemplate(invoiceResult);
+      // Use business data as template
+      setInvoiceTemplate({
+        template: {
+          footer: {
+            message: "Thank you for your business!",
+            paymentInstructions: "Payment due within payment terms",
+            bankDetails: {
+              accountName: "I.T. Pene",
+              bsb: "923100", 
+              accountNumber: "302324547"
+            }
+          }
+        }
+      });
 
       // Load specific invoice
       const invoiceDataResponse = await fetch(`/api/invoice/${id}`);
@@ -65,7 +75,7 @@ export default function InvoicePreview() {
     printWindow.document.close();
   };
 
-  if (!businessData || !invoiceTemplate || !invoice) {
+  if (!businessData || !invoice) {
     return (
       <Layout>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
@@ -257,31 +267,13 @@ export default function InvoicePreview() {
           </div>
         
 
-          {/* Bank Details */}
-          {invoiceTemplate.template.footer.bankDetails && (
-            <div style={{ 
-              marginTop: '30px', 
-              backgroundColor: '#f8f8f8', 
-              padding: '20px', 
-              borderRadius: '8px',
-              border: '1px solid #ddd'
-            }}>
-              <h4 style={{ color: '#333', fontSize: '16px', marginBottom: '10px', fontWeight: 'bold' }}>
-                Payment Details
-              </h4>
-              <div style={{ fontSize: '14px', color: '#333', lineHeight: '1.6' }}>
-                <div><strong>Account Name:</strong> {invoiceTemplate.template.footer.bankDetails.accountName}</div>
-                <div><strong>BSB:</strong> {invoiceTemplate.template.footer.bankDetails.bsb}</div>
-                <div><strong>Account Number:</strong> {invoiceTemplate.template.footer.bankDetails.accountNumber}</div>
-              </div>
-            </div>
-          )}
+          
 
           {/* Footer */}
           <div style={{ marginTop: '40px', borderTop: '2px solid #333', paddingTop: '20px' }}>
             <div style={{ textAlign: 'center', color: '#666', fontSize: '14px' }}>
-              <p>{invoiceTemplate.template.footer.message}</p>
-              <p>{invoiceTemplate.template.footer.paymentInstructions}</p>
+              <p>Thank you for your business!</p>
+              <p>Payment due within payment terms</p>
             </div>
           </div>
         </div>
