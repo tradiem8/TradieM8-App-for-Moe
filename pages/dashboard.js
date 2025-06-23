@@ -11,7 +11,34 @@ export default function Dashboard() {
 
   useEffect(() => {
     checkSetupStatus();
+    loadDashboardData();
   }, []);
+
+  const [dashboardData, setDashboardData] = useState({
+    activeLeads: 0,
+    newLeads: 0,
+    monthlyRevenue: 0
+  });
+
+  const loadDashboardData = async () => {
+    try {
+      const response = await fetch('/api/leads');
+      if (response.ok) {
+        const data = await response.json();
+        const leads = data.leads || [];
+        const activeLeads = leads.filter(lead => ['new', 'contacted', 'quoted'].includes(lead.status)).length;
+        const newLeads = leads.filter(lead => lead.status === 'new').length;
+        
+        setDashboardData({
+          activeLeads,
+          newLeads,
+          monthlyRevenue: 0 // Will be calculated from jobs/invoices later
+        });
+      }
+    } catch (error) {
+      console.error('Error loading dashboard data:', error);
+    }
+  };
 
   const checkSetupStatus = async () => {
     try {
@@ -218,7 +245,7 @@ export default function Dashboard() {
           <h2 style={{ color: '#FF6600', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>Quick Stats</h2>
           <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '20px' }}>
             <div>
-              <div style={{ fontSize: '32px', color: '#FFD700', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>0</div>
+              <div style={{ fontSize: '32px', color: '#FFD700', fontWeight: 'bold', fontFamily: 'Inter, sans-serif' }}>{dashboardData.activeLeads}</div>
               <div style={{ color: '#cccccc', fontFamily: 'Inter, sans-serif' }}>Active Leads</div>
             </div>
             <div>
