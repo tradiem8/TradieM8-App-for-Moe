@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 
 export default function InvoicePreview() {
+  const router = useRouter();
+  const { id } = router.query;
   const [businessData, setBusinessData] = useState(null);
   const [invoiceTemplate, setInvoiceTemplate] = useState(null);
+  const [invoice, setInvoice] = useState(null);
 
   useEffect(() => {
-    loadData();
-  }, []);
+    if (id) {
+      loadData();
+    }
+  }, [id]);
 
   const loadData = async () => {
     try {
@@ -21,16 +27,51 @@ export default function InvoicePreview() {
       const invoiceResponse = await fetch('/data/invoice-template.json');
       const invoiceResult = await invoiceResponse.json();
       setInvoiceTemplate(invoiceResult);
+
+      // Load specific invoice
+      const invoiceDataResponse = await fetch(`/api/invoice/${id}`);
+      if (invoiceDataResponse.ok) {
+        const invoiceData = await invoiceDataResponse.json();
+        setInvoice(invoiceData.invoice);
+      }
     } catch (error) {
       console.error('Error loading data:', error);
     }
   };
 
-  if (!businessData || !invoiceTemplate) {
+  const generatePDF = () => {
+    const printWindow = window.open('', '_blank');
+    const invoiceHTML = document.getElementById('invoice-content').innerHTML;
+    
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Invoice ${invoice?.invoiceNumber || 'Preview'}</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+            th { background-color: #f5f5f5; }
+            .header { display: flex; justify-content: space-between; margin-bottom: 30px; }
+            .totals { margin-top: 20px; }
+            @media print { body { margin: 0; } }
+          </style>
+        </head>
+        <body onload="window.print(); window.close();">
+          ${invoiceHTML}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+  };
+
+  if (!businessData || !invoiceTemplate || !invoice) {
     return (
       <Layout>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
-          <div style={{ color: '#FFD700', fontSize: '18px', fontFamily: 'Inter, sans-serif' }}>Loading invoice template...</div>
+          <div style={{ color: '#FFD700', fontSize: '18px', fontFamily: 'Inter, sans-serif' }}>
+            {!id ? 'No invoice ID provided' : 'Loading invoice...'}
+          </div>
         </div>
       </Layout>
     );
@@ -64,7 +105,7 @@ export default function InvoicePreview() {
           </p>
         </div>
 
-        <div style={invoiceStyle}>
+        <div id="invoice-content" style={invoiceStyle}>
           {/* Header Section */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
             {/* Left side - Tax Invoice */}
@@ -79,7 +120,10 @@ export default function InvoicePreview() {
                 TAX INVOICE
               </h1>
               <div style={{ fontSize: '14px', lineHeight: '1.6', color: '#333', marginBottom: '20px' }}>
-                <div style={{ marginBottom: '4px' }}>Oliver Krumins, 167 Brygon Creek Drive, Upper Coomera QLD 4209</div>
+                <div style={{ marginBottom: '4px' }}>{businessData.businessName}</div>
+                <div style={{ marginBottom: '4px' }}>{businessData.address}</div>
+                <div style={{ marginBottom: '4px' }}>{businessData.phone}</div>
+                <div style={{ marginBottom: '4px' }}>{businessData.email}</div>
               </div>
             </div>
 
@@ -117,15 +161,15 @@ export default function InvoicePreview() {
               <div style={{ fontSize: '14px', lineHeight: '1.6', color: '#333' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ fontWeight: 'bold' }}>Invoice Date</span>
-                  <span>{new Date().toLocaleDateString('en-GB')}</span>
+                  <span>{new Date(invoice.invoiceDate).toLocaleDateString('en-GB')}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ fontWeight: 'bold' }}>Invoice Number</span>
-                  <span>INV-1320</span>
+                  <span>{invoice.invoiceNumber}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ fontWeight: 'bold' }}>Reference</span>
-                  <span>Deposit: Gutter Guard</span>
+                  <span>{invoice.reference || 'N/A'}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ fontWeight: 'bold' }}>ABN</span>
@@ -135,12 +179,12 @@ export default function InvoicePreview() {
 
               {/* Bill To Section */}
               <div style={{ marginTop: '20px', textAlign: 'right' }}>
-                <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '8px' }}>BIB QLD PTY LTD</div>
+                <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '8px' }}>BILL TO:</div>
                 <div style={{ fontSize: '14px', lineHeight: '1.4', color: '#333' }}>
-                  <div>{businessData.businessName}</div>
-                  <div>10 Pipers Point,</div>
-                  <div>HELENSVALE QLD</div>
-                  <div>AUSTRALIA, 4212</div>
+                  <div>{invoice.customer.name}</div>
+                  <div>{invoice.customer.email}</div>
+                  <div>{invoice.customer.phone}</div>
+                  <div>{invoice.customer.serviceAddress}</div>
                 </div>
               </div>
             </div>
@@ -158,38 +202,17 @@ export default function InvoicePreview() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td style={{ padding: '12px', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc', verticalAlign: 'top' }}>
-                  <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>DEPOSIT ONLY 30% of total line</div>
-                  <br />
-                  <div style={{ marginBottom: '8px' }}>
-                    <strong>Main House: Gutters (Corro Roof)</strong><br />
-                    4mm Aluminium Mesh 250mm wide & Gutter Trim<br />
-                    Colour: Paper Bark Mesh & Gutter Trim
-                  </div>
-                  <div style={{ marginBottom: '8px' }}>
-                    <strong>Main House: Valleys (Corro Roof)</strong><br />
-                    4mm Aluminium Mesh 250mm wide & Gutter Trim<br />
-                    Colour: Paper Bark Mesh
-                  </div>
-                  <div>
-                    <strong>Rear Patio: Gutters (Corro Roof)</strong><br />
-                    4mm Aluminium Mesh 250mm wide & Gutter Trim<br />
-                    Colour: Wallaby Grey Mesh & Paperbark Gutter Trim
-                  </div>
-                </td>
-                <td style={{ padding: '12px', textAlign: 'center', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>1.00</td>
-                <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>1,557.2727</td>
-                <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>10%</td>
-                <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>1,557.27</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>Credit Card Fee 2.2%</td>
-                <td style={{ padding: '12px', textAlign: 'center', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>1.00</td>
-                <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>37.69</td>
-                <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>GST Free</td>
-                <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>37.69</td>
-              </tr>
+              {invoice.items.map((item, index) => (
+                <tr key={index}>
+                  <td style={{ padding: '12px', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc', verticalAlign: 'top' }}>
+                    {item.description}
+                  </td>
+                  <td style={{ padding: '12px', textAlign: 'center', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>{item.quantity}</td>
+                  <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>${item.unitPrice.toFixed(2)}</td>
+                  <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>{item.gst}</td>
+                  <td style={{ padding: '12px', textAlign: 'right', fontFamily: 'Inter, sans-serif', border: '1px solid #ccc' }}>${(item.quantity * item.unitPrice).toFixed(2)}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
@@ -198,23 +221,19 @@ export default function InvoicePreview() {
             <div style={{ minWidth: '300px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', fontFamily: 'Inter, sans-serif', borderBottom: '1px solid #eee' }}>
                 <span>Subtotal</span>
-                <span>1,594.96</span>
+                <span>${invoice.subtotal.toFixed(2)}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', fontFamily: 'Inter, sans-serif', borderBottom: '1px solid #eee' }}>
                 <span>TOTAL GST 10%</span>
-                <span>155.73</span>
+                <span>${invoice.gst.toFixed(2)}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', fontFamily: 'Inter, sans-serif', borderBottom: '2px solid #333', fontWeight: 'bold' }}>
                 <span>TOTAL AUD</span>
-                <span>1,750.69</span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', fontFamily: 'Inter, sans-serif', borderBottom: '1px solid #eee' }}>
-                <span>Less Amount Paid</span>
-                <span>1,750.69</span>
+                <span>${invoice.total.toFixed(2)}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', fontFamily: 'Inter, sans-serif', fontWeight: 'bold', fontSize: '16px' }}>
                 <span>AMOUNT DUE AUD</span>
-                <span>0.00</span>
+                <span>${invoice.total.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -222,7 +241,7 @@ export default function InvoicePreview() {
           {/* Payment Details */}
           <div style={{ marginBottom: '20px' }}>
             <div style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '10px', fontFamily: 'Inter, sans-serif' }}>
-              Due Date: {new Date(Date.now() + (invoiceTemplate.settings.paymentTerms * 24 * 60 * 60 * 1000)).toLocaleDateString('en-GB')}
+              Due Date: {new Date(invoice.dueDate).toLocaleDateString('en-GB')}
             </div>
             <div style={{ fontSize: '14px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
               <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>Please Make Payment into:</div>
@@ -267,9 +286,25 @@ export default function InvoicePreview() {
           </div>
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '30px' }}>
+        <div style={{ textAlign: 'center', marginTop: '30px', display: 'flex', gap: '15px', justifyContent: 'center' }}>
           <button 
-            onClick={() => window.history.back()}
+            onClick={generatePDF}
+            style={{
+              padding: '12px 30px',
+              backgroundColor: '#FFD700',
+              color: '#000',
+              border: 'none',
+              borderRadius: '5px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              fontFamily: 'Inter, sans-serif'
+            }}
+          >
+            Download PDF
+          </button>
+          <button 
+            onClick={() => router.push('/invoices')}
             style={{
               padding: '12px 30px',
               backgroundColor: '#00FF00',
@@ -282,7 +317,7 @@ export default function InvoicePreview() {
               fontFamily: 'Inter, sans-serif'
             }}
           >
-            Back to Dashboard
+            Back to Invoices
           </button>
         </div>
       </div>
