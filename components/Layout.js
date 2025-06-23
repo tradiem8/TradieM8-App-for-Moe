@@ -24,16 +24,7 @@ export default function Layout({ children }) {
               <span style={{ color: '#00FF00' }}>M8</span>
             </h2>
           </div>
-          <div style={{ display: 'flex', gap: '30px' }}>
-            <a href="/" style={{ 
-              color: '#ffffff', 
-              textDecoration: 'none',
-              fontWeight: '500',
-              padding: '8px 16px',
-              borderRadius: '5px',
-              transition: 'all 0.3s ease',
-              fontFamily: 'Inter, sans-serif'
-            }}>Home</a>
+          <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
             <a href="/dashboard" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
@@ -42,8 +33,64 @@ export default function Layout({ children }) {
               borderRadius: '5px',
               transition: 'all 0.3s ease',
               fontFamily: 'Inter, sans-serif'
-            }}>Dashboard</a>
-            <a href="/setup" style={{ 
+            }}>Home</a>
+            
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+              <button 
+                style={{ 
+                  color: '#ffffff', 
+                  background: 'transparent',
+                  border: 'none',
+                  fontWeight: '500',
+                  padding: '8px 16px',
+                  borderRadius: '5px',
+                  transition: 'all 0.3s ease',
+                  fontFamily: 'Inter, sans-serif',
+                  cursor: 'pointer',
+                  fontSize: '16px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.nextElementSibling.style.display = 'block';
+                }}
+              >
+                Contacts ▼
+              </button>
+              <div 
+                style={{
+                  display: 'none',
+                  position: 'absolute',
+                  top: '100%',
+                  left: '0',
+                  backgroundColor: '#2a2a2a',
+                  border: '1px solid #00FF00',
+                  borderRadius: '5px',
+                  minWidth: '150px',
+                  zIndex: 1000,
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)'
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              >
+                <a href="/leads" style={{
+                  display: 'block',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  padding: '10px 16px',
+                  fontFamily: 'Inter, sans-serif',
+                  borderBottom: '1px solid #444'
+                }}>Leads</a>
+                <a href="/customers" style={{
+                  display: 'block',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  padding: '10px 16px',
+                  fontFamily: 'Inter, sans-serif'
+                }}>Customers</a>
+              </div>
+            </div>
+
+            <a href="/quotes" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
               fontWeight: '500',
@@ -51,29 +98,14 @@ export default function Layout({ children }) {
               borderRadius: '5px',
               transition: 'all 0.3s ease',
               fontFamily: 'Inter, sans-serif'
-            }}>Setup</a>
-            <a href="/leads" style={{ 
-              color: '#ffffff', 
-              textDecoration: 'none',
-              fontWeight: '500',
-              padding: '8px 16px',
-              borderRadius: '5px',
-              fontFamily: 'Inter, sans-serif'
-            }}>Leads</a>
-            <a href="/jobs" style={{ 
-              color: '#ffffff', 
-              textDecoration: 'none',
-              fontWeight: '500',
-              padding: '8px 16px',
-              borderRadius: '5px',
-              fontFamily: 'Inter, sans-serif'
-            }}>Jobs</a>
+            }}>Quotes</a>
             <a href="/invoices" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
               fontWeight: '500',
               padding: '8px 16px',
               borderRadius: '5px',
+              transition: 'all 0.3s ease',
               fontFamily: 'Inter, sans-serif'
             }}>Invoices</a>
             <a href="/bookings" style={{ 
@@ -82,8 +114,18 @@ export default function Layout({ children }) {
               fontWeight: '500',
               padding: '8px 16px',
               borderRadius: '5px',
+              transition: 'all 0.3s ease',
               fontFamily: 'Inter, sans-serif'
-            }}>Bookings</a>
+            }}>Bookings/Jobs</a>
+            <a href="/setup" style={{ 
+              color: '#ffffff', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px',
+              transition: 'all 0.3s ease',
+              fontFamily: 'Inter, sans-serif'
+            }}>Settings</a>
           </div>
         </div>
       </nav>
