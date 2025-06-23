@@ -10,9 +10,21 @@ async function downloadProjectFiles() {
 
     // List all objects with the tradiem8/ prefix
     const result = await client.list();
-    const objects = result.data || result || [];
-    const tradiem8Objects = objects.filter(obj => obj.key && obj.key.startsWith('tradiem8/'));
-    console.log(`Found ${tradiem8Objects.length} files to download`);
+    console.log('Raw result:', result);
+    
+    // Handle different possible response formats
+    let objects = [];
+    if (Array.isArray(result)) {
+      objects = result;
+    } else if (result && Array.isArray(result.data)) {
+      objects = result.data;
+    } else if (result && result.ok && Array.isArray(result.value)) {
+      objects = result.value;
+    }
+    
+    console.log('Objects found:', objects.length);
+    const tradiem8Objects = objects.filter(obj => obj && obj.key && obj.key.startsWith('tradiem8/'));
+    console.log(`Found ${tradiem8Objects.length} tradiem8 files to download`);
 
     for (const obj of tradiem8Objects) {
       const fileName = obj.key.replace('tradiem8/', '');
