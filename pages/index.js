@@ -108,14 +108,18 @@ export default function Home() {
             fontWeight: 'bold',
             boxShadow: '0 6px 20px rgba(255, 215, 0, 0.3)',
             transition: 'all 0.3s ease',
-            border: '2px solid #00FF00'
+            border: '2px solid #00FF00',
+            fontFamily: 'Anton, sans-serif',
+            letterSpacing: '1px'
           }}>
             🚀 Launch Dashboard
           </a>
           <p style={{ 
             color: '#cccccc', 
             marginTop: '20px',
-            fontSize: '16px'
+            fontSize: '16px',
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: '400'
           }}>
             Start managing your trade business like a pro
           </p>
