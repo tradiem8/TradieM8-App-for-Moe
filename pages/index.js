@@ -53,8 +53,8 @@ export default function Home() {
             borderRadius: '12px',
             border: '2px solid #00FF00'
           }}>
-            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px' }}>📊 Lead Management</h3>
-            <p style={{ color: '#cccccc', lineHeight: '1.6' }}>
+            <h3 style={{ color: '#00FF00', fontSize: '24px', marginBottom: '15px', fontFamily: 'Anton, sans-serif', fontWeight: '400', letterSpacing: '1px' }}>📊 Lead Management</h3>
+            <p style={{ color: '#cccccc', lineHeight: '1.6', fontFamily: 'Inter, sans-serif', fontWeight: '400' }}>
               Track and convert potential customers into profitable jobs
             </p>
           </div>
@@ -65,8 +65,8 @@ export default function Home() {
             borderRadius: '12px',
             border: '2px solid #FFD700'
           }}>
-            <h3 style={{ color: '#FFD700', fontSize: '24px', marginBottom: '15px' }}>🔧 Job Tracking</h3>
-            <p style={{ color: '#cccccc', lineHeight: '1.6' }}>
+            <h3 style={{ color: '#FFD700', fontSize: '24px', marginBottom: '15px', fontFamily: 'Anton, sans-serif', fontWeight: '400', letterSpacing: '1px' }}>🔧 Job Tracking</h3>
+            <p style={{ color: '#cccccc', lineHeight: '1.6', fontFamily: 'Inter, sans-serif', fontWeight: '400' }}>
               Monitor project progress and manage multiple jobs efficiently
             </p>
           </div>
@@ -77,8 +77,8 @@ export default function Home() {
             borderRadius: '12px',
             border: '2px solid #FF6600'
           }}>
-            <h3 style={{ color: '#FF6600', fontSize: '24px', marginBottom: '15px' }}>💰 Smart Invoicing</h3>
-            <p style={{ color: '#cccccc', lineHeight: '1.6' }}>
+            <h3 style={{ color: '#FF6600', fontSize: '24px', marginBottom: '15px', fontFamily: 'Anton, sans-serif', fontWeight: '400', letterSpacing: '1px' }}>💰 Smart Invoicing</h3>
+            <p style={{ color: '#cccccc', lineHeight: '1.6', fontFamily: 'Inter, sans-serif', fontWeight: '400' }}>
               Generate professional invoices and track payments seamlessly
             </p>
           </div>
@@ -89,8 +89,8 @@ export default function Home() {
             borderRadius: '12px',
             border: '2px solid #9D4EDD'
           }}>
-            <h3 style={{ color: '#9D4EDD', fontSize: '24px', marginBottom: '15px' }}>🤖 Digital Apprentice</h3>
-            <p style={{ color: '#cccccc', lineHeight: '1.6' }}>
+            <h3 style={{ color: '#9D4EDD', fontSize: '24px', marginBottom: '15px', fontFamily: 'Anton, sans-serif', fontWeight: '400', letterSpacing: '1px' }}>🤖 Digital Apprentice</h3>
+            <p style={{ color: '#cccccc', lineHeight: '1.6', fontFamily: 'Inter, sans-serif', fontWeight: '400' }}>
               AI-powered assistant that handles calls and automates lead capture
             </p>
           </div>
