@@ -82,6 +82,18 @@ export default function Home() {
               Generate professional invoices and track payments seamlessly
             </p>
           </div>
+
+          <div style={{ 
+            padding: '30px',
+            backgroundColor: '#2a2a2a',
+            borderRadius: '12px',
+            border: '2px solid #9D4EDD'
+          }}>
+            <h3 style={{ color: '#9D4EDD', fontSize: '24px', marginBottom: '15px' }}>🤖 Digital Apprentice</h3>
+            <p style={{ color: '#cccccc', lineHeight: '1.6' }}>
+              AI-powered assistant that handles calls and automates lead capture
+            </p>
+          </div>
         </div>
 
         <div style={{ marginTop: '60px' }}>

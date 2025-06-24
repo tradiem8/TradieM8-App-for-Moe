@@ -232,6 +232,24 @@ export default function Dashboard() {
             </p>
             <a href="/bookings" style={{...linkStyle, fontFamily: 'Inter, sans-serif'}}>View Bookings →</a>
           </div>
+
+          <div style={{
+            ...cardStyle,
+            border: '2px solid #9D4EDD',
+            background: 'linear-gradient(135deg, #2a1a3a, #1a1a2a)'
+          }}>
+            <h3 style={{ color: '#9D4EDD', fontSize: '24px', marginBottom: '15px', fontFamily: 'Inter, sans-serif' }}>🤖 Digital Apprentice</h3>
+            <p style={{ color: '#cccccc', marginBottom: '20px', lineHeight: '1.5', fontFamily: 'Inter, sans-serif' }}>
+              AI assistant for calls, webhooks, and automation
+            </p>
+            <a href="/digital-apprentice" style={{
+              color: '#9D4EDD',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '16px',
+              fontFamily: 'Inter, sans-serif'
+            }}>Manage AI Assistant →</a>
+          </div>
         </div>
 
         <div style={{ 

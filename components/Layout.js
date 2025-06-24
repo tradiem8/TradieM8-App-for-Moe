@@ -117,6 +117,15 @@ export default function Layout({ children }) {
               transition: 'all 0.3s ease',
               fontFamily: 'Inter, sans-serif'
             }}>Bookings/Jobs</a>
+            <a href="/digital-apprentice" style={{ 
+              color: '#9D4EDD', 
+              textDecoration: 'none',
+              fontWeight: '500',
+              padding: '8px 16px',
+              borderRadius: '5px',
+              transition: 'all 0.3s ease',
+              fontFamily: 'Inter, sans-serif'
+            }}>Digital Apprentice</a>
             <a href="/setup" style={{ 
               color: '#ffffff', 
               textDecoration: 'none',
